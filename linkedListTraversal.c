@@ -6,6 +6,13 @@ struct Node {
   struct Node* next;
 };
 
+void printList(struct Node* curr) {
+  while(curr != NULL) {
+    printf("The data is %d.\n", curr->data);
+    curr = curr->next;
+  }
+}
+
 int main() {
   struct Node* head = NULL;
   struct Node* second = NULL;
@@ -23,11 +30,7 @@ int main() {
   third->data = 3;
   third->next = NULL;
 
-  struct Node* curr = head;
-  while(curr != NULL) {
-    printf("The data is %d.\n", curr->data);
-    curr = curr->next;
-  }
+  printList(head);
 
   return 0;
 }
