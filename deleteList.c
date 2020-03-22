@@ -43,4 +43,6 @@ int main() {
   deletList(&head);
   printf("After deleting\n");
   printList(head);
+
+  return 0;
 }
