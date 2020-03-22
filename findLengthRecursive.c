@@ -6,16 +6,6 @@ struct Node {
   struct Node* next;
 };
 
-int countLength(struct Node** head_ref) {
-  struct Node* curr = (*head_ref);
-  int count = 0;
-  while (curr != NULL) {
-    count++;
-    curr = curr->next;
-  }
-  return count;
-}
-
 void insertFront(struct Node** head_ref, int new_data) {
   struct Node* new_node = (struct Node*) malloc(sizeof(struct Node));
   new_node->data = new_data;
@@ -31,6 +21,11 @@ void printList(struct Node** head_ref) {
   }
 }
 
+int countLengthRec(struct Node* head) {
+  if (head == NULL) return 0;
+  return 1 + countLengthRec(head->next);
+}
+
 int main() {
   struct Node* head = NULL;
   insertFront(&head, 1);
@@ -38,8 +33,7 @@ int main() {
   insertFront(&head, 3);
   insertFront(&head, 4);
   printList(&head);
-  int count = countLength(&head);
-  printf("Length of linked list is %d\n", count);
-
+  int count = countLengthRec(head);
+  printf("The length of the linked list is %d\n", count);
   return 0;
 }
