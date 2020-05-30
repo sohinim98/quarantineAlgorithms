@@ -11,6 +11,8 @@ void sortUsingHash(int a[], int n) {
   }
   // traversing hash
   for (int i=0; i<=max; i++) {
+    // if only one instance of each number then time complexity
+    // is O(max)
     if (hash[i]) {
       for (int j=0; j<hash[i]; j++) {
         cout << i << " ";
